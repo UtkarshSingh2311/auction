@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Product Detail</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Global Reset & Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #f4f7f9, #e0e5ec);
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    /* Header Styles */
+    header {
+      background: #fff;
+      padding: 15px 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #4e73df;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      margin-left: 15px;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #4e73df;
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    
+    /* Product Detail Layout */
+    .product-detail {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 40px;
+      align-items: flex-start;
+    }
+    
+    /* Product Gallery (Left Column) */
+    .product-gallery {
+      flex: 1 1 300px;
+      max-width: 500px;
+    }
+    .main-image {
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: #ddd;
+      margin-bottom: 15px;
+    }
+    .main-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+    .thumbnail-gallery {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .thumbnail-gallery img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border: 2px solid transparent;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: border 0.3s;
+    }
+    .thumbnail-gallery img:hover,
+    .thumbnail-gallery img.active {
+      border: 2px solid #4e73df;
+    }
+    
+    /* Product Info (Right Column) */
+    .product-info {
+      flex: 2 1 300px;
+    }
+    .product-info h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .price {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #4e73df;
+      margin-bottom: 20px;
+    }
+    .product-info p {
+      margin-bottom: 15px;
+      font-size: 1rem;
+      color: #555;
+    }
+    .product-info p strong {
+      color: #333;
+    }
+    .back-btn {
+      display: inline-block;
+      text-decoration: none;
+      background: #4e73df;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 20px;
+      transition: background 0.3s;
+      margin-top: 20px;
+    }
+    .back-btn:hover {
+      background: #3a5cad;
+    }
+    
+    /* Footer Styles */
+    footer {
+      background: #e9ecef;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">Auction House</div>
+    <nav>
+      <a href="auction_management.html">Dashboard</a>
+    </nav>
+  </header>
+  
+  <!-- Main Content -->
+  <div class="container">
+    <div class="product-detail">
+      <!-- Product Gallery Column -->
+      <div class="product-gallery">
+        <div class="main-image">
+          <img id="mainImage" src="https://via.placeholder.com/500x400" alt="Vintage Watch">
+        </div>
+        <div class="thumbnail-gallery">
+          <!-- Thumbnails: clicking one updates the main image -->
+          <img class="thumbnail active" src="https://via.placeholder.com/80x80" alt="Vintage Watch 1" data-large="https://via.placeholder.com/500x400">
+          <img class="thumbnail" src="https://via.placeholder.com/80x80/cccccc" alt="Vintage Watch 2" data-large="https://via.placeholder.com/500x400/cccccc">
+          <img class="thumbnail" src="https://via.placeholder.com/80x80/999999" alt="Vintage Watch 3" data-large="https://via.placeholder.com/500x400/999999">
+          <img class="thumbnail" src="https://via.placeholder.com/80x80/666666" alt="Vintage Watch 4" data-large="https://via.placeholder.com/500x400/666666">
+        </div>
+      </div>
+      
+      <!-- Product Information Column -->
+      <div class="product-info">
+        <h1>Vintage Watch</h1>
+        <div class="price">₹ 100</div>
+        <p><strong>Description:</strong> This elegant vintage watch features a classic design that suits any style. A timeless piece that blends tradition with modern sophistication.</p>
+        <p><strong>Auction Date:</strong> April 23 - April 24, 2025</p>
+        <p><strong>Category:</strong> Timepieces</p>
+        <a href="product_details.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Products</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Auction House. All rights reserved.</p>
+  </footer>
+  
+  <!-- JavaScript: Update Main Image on Thumbnail Click -->
+  <script>
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const mainImage = document.getElementById('mainImage');
+
+    thumbnails.forEach(thumb => {
+      thumb.addEventListener('click', function () {
+        // Remove active class from all thumbnails
+        thumbnails.forEach(t => t.classList.remove('active'));
+        // Add active class to clicked thumbnail
+        this.classList.add('active');
+        // Update main image source using the data-large attribute
+        mainImage.src = this.getAttribute('data-large');
+      });
+    });
+  </script>
+</body>
+</html>
